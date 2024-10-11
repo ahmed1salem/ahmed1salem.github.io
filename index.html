@@ -11,10 +11,9 @@
             margin: 0;
             padding: 0;
             color: #333;
-            overflow-x: hidden; /* لمنع التمرير الأفقي */
+            overflow-x: hidden;
         }
 
-        /* خلفية الفيديو الشاملة */
         .video-background {
             position: fixed;
             top: 0;
@@ -23,10 +22,9 @@
             height: 100vh;
             object-fit: cover;
             z-index: -1;
-            pointer-events: none; /* لمنع تداخل الفيديو مع التفاعل */
+            pointer-events: none;
         }
 
-        /* تصميم للفيديو للأجهزة الكبيرة (أجهزة الكمبيوتر والتابلت) */
         @media (min-width: 768px) {
             .video-pc {
                 display: block;
@@ -36,7 +34,6 @@
             }
         }
 
-        /* تصميم للفيديو للأجهزة الصغيرة (الهواتف) */
         @media (max-width: 767px) {
             .video-pc {
                 display: none;
@@ -50,7 +47,7 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8); /* نصف شفاف لضمان وضوح المحتوى */
+            background-color: rgba(255, 255, 255, 0.8);
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             position: relative;
@@ -106,13 +103,11 @@
     </style>
 </head>
 <body>
-    <!-- خلفية الفيديو لأجهزة الكمبيوتر والتابلت -->
     <video class="video-background video-pc" autoplay muted loop>
         <source src="background-pc.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
-    <!-- خلفية الفيديو للهواتف -->
     <video class="video-background video-mobile" autoplay muted loop>
         <source src="background-mobile.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -122,22 +117,24 @@
         <header>
             <img src="profile.png" alt="Ahmed Salem Khalifa's Profile Picture">
             <h1>Ahmed Salem Khalifa</h1>
-            <p>Marketing Professional | Customer Service Enthusiast | Programming Specialist</p>
-            <p>Email: <a href="mailto:asalemkhalifa@gmail.com">asalemkhalifa@gmail.com</a></p>
+            <p>High school student & Online Instructor</p>
+            <p>Email: <a href="mailto:ahmedsalem.nilevora@outlook.com">ahmedsalem.nilevora@outlook.com</a></p>
             <p>Phone: +201012043890</p>
-            <p><a href="https://www.linkedin.com/in/ahmed-salem-khalifa-811540302" target="_blank">LinkedIn</a> | Location: Benha, Egypt</p>
+            <p><a href="https://www.linkedin.com/in/ahmedsalem-khalifa" target="_blank">LinkedIn</a> | Location: Benha, Egypt</p>
         </header>
 
         <section>
             <h2>Objective</h2>
-            <p>Motivated and results-driven marketing professional with a passion for customer service. Experienced in managing Facebook ad campaigns and a proven ability to work collaboratively in teams, solve problems, and apply critical thinking. I have programming experience in HTML and specialize in creating websites using the platforms Blogger and GitHub. I am seeking opportunities in marketing, customer service, and web development to further develop my skills and contribute to a company's success.</p>
+            <p>Motivated and results-driven marketing professional with a strong background in customer service and proven ability to communicate effectively in both English and Arabic. Experienced in managing digital campaigns, web development, and problem-solving in team environments. Seeking a role that will allow me to further leverage my skills and language proficiency to contribute to an international company's success.</p>
         </section>
 
         <section>
-            <h2>Education</h2>
+            <h2>Experience</h2>
             <ul>
-                <li><strong>EFSET English Certificate</strong> – B1 Intermediate, EFSET, Sweden</li>
-                <li><strong>302 College Prep English I</strong>, American University in Cairo (AUC)</li>
+                <li><strong>Freelance video editor</strong> – May 2023 – Jul 2023</li>
+                <p>Edited a variety of videos for the YouTube channel “Fawzi After Seventy” which focuses on poetry and animal stories.</p>
+                <li><strong>YouTube Content Creator</strong> – Apr 2024 – Present</li>
+                <p>Created and managed video content in both English and Arabic, covering topics such as gaming, tutorials, and educational content.</p>
             </ul>
         </section>
 
@@ -148,8 +145,7 @@
                 <li>Customer Service: Strong interpersonal skills with a customer-focused mindset.</li>
                 <li>Teamwork: Ability to collaborate and contribute effectively in team settings.</li>
                 <li>Problem-Solving: Adept at identifying and resolving issues efficiently.</li>
-                <li>Critical Thinking: Skilled in analyzing situations and making informed decisions.</li>
-                <li>Programming: I have an experience in programming in HTML and specializes in creating websites using the platforms Blogger and GitHub.<li>
+                <li>Programming: Experience in programming in HTML and creating websites using Blogger and GitHub.</li>
             </ul>
         </section>
 
@@ -170,12 +166,14 @@
 
         <section>
             <h2>Projects</h2>
-            <p>No projects yet.</p>
+            <ul>
+                <li><strong>Course: Creating a Website as a CV Using GitHub with the Assistance of ChatGPT</strong> – Instructor (Sep 2024 – Oct 2024)</li>
+            </ul>
         </section>
 
         <section>
             <h2>References</h2>
-            <p>Available upon request.</p>
+            <p>Available upon request</p>
         </section>
     </div>
 </body>
