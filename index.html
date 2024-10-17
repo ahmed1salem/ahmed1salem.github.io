@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahmed Salem Khalifa | Resume</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMaNRMu/KyN2kuItKFu0aJ6JgNLD69Npy4HI+Mz" crossorigin="anonymous">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -13,48 +12,47 @@
             padding: 0;
             color: #333;
             overflow-x: hidden;
-            background-color: #f7f7f7;
         }
 
-        /* Navigation bar */
-        nav {
-            background-color: #2c3e50;
-            padding: 10px;
-            position: sticky;
+        .video-background {
+            position: fixed;
             top: 0;
-            z-index: 2;
-        }
-        
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            margin: 0;
-            padding: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+            pointer-events: none;
         }
 
-        nav ul li {
-            margin: 0 15px;
+        @media (min-width: 768px) {
+            .video-pc {
+                display: block;
+            }
+            .video-mobile {
+                display: none;
+            }
         }
 
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
+        @media (max-width: 767px) {
+            .video-pc {
+                display: none;
+            }
+            .video-mobile {
+                display: block;
+            }
         }
 
-        nav ul li a:hover {
-            color: #f39c12;
-        }
-
-        /* Main container and content styles */
         .container {
             max-width: 900px;
-            margin: 20px auto;
+            margin: 0 auto;
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.8);
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1s ease-in;
         }
 
         header {
@@ -94,45 +92,34 @@
             margin-bottom: 10px;
         }
 
-        /* Footer section */
         footer {
+            text-align: center;
+            padding: 20px;
             background-color: #2c3e50;
             color: #fff;
-            text-align: center;
-            padding: 15px 0;
-            margin-top: 20px;
+            font-size: 0.9em;
         }
 
-        footer p {
-            margin: 0;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 767px) {
-            nav ul {
-                flex-direction: column;
-                padding: 10px;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
             }
-
-            nav ul li {
-                margin: 10px 0;
+            to {
+                opacity: 1;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation bar -->
-    <nav>
-        <ul>
-            <li><a href="#objective">Objective</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#languages">Languages</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#references">References</a></li>
-        </ul>
-    </nav>
+    <video class="video-background video-pc" autoplay muted loop>
+        <source src="background-pc.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <video class="video-background video-mobile" autoplay muted loop>
+        <source src="background-mobile.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
     <div class="container">
         <header>
@@ -141,24 +128,23 @@
             <p>High school student & Online Instructor</p>
             <p>Email: <a href="mailto:ahmedsalem.nilevora@outlook.com">ahmedsalem.nilevora@outlook.com</a></p>
             <p>Phone: +201012043890</p>
-            <p><a href="https://www.linkedin.com/in/ahmedsalem-khalifa" target="_blank">
-                <i class="fab fa-linkedin"></i> LinkedIn</a> | Location: Benha, Qalyubia, Egypt</p>
+            <p><a href="https://www.linkedin.com/in/ahmedsalem-khalifa" target="_blank">LinkedIn</a> | Location: Benha, Qalyubia, Egypt</p>
         </header>
 
-        <!-- Objective Section -->
-        <section id="objective">
+        <section>
             <h2>Objective</h2>
             <p>Motivated and results-driven marketing professional with a strong background in customer service and proven ability to communicate effectively in both English and Arabic. Experienced in managing digital campaigns, web development, and problem-solving in team environments. Seeking a role that will allow me to further leverage my skills and language proficiency to contribute to an international company's success.</p>
         </section>
 
-        <!-- Experience Section -->
-        <section id="experience">
+        <section>
             <h2>Experience</h2>
             <ul>
                 <li><strong>Freelance video editor</strong> – May 2023 – Jul 2023</li>
                 <p>Edited a variety of videos for the YouTube channel “Fawzi After Seventy” which focuses on poetry and animal stories.</p>
                 <li><strong>YouTube Content Creator</strong> – Apr 2024 – Present</li>
-                <p>Created and managed video content in both English and Arabic, covering topics such as gaming, tutorials, and educational content, optimizing for broader audience engagement.</p>
+                <p>I. Created and managed video content in both English and Arabic, covering topics such as gaming, tutorials, and educational content, optimizing for broader audience engagement.</p>
+                <p>II. Edited videos to ensure high-quality production, optimized for audience engagement and viewership.</p>
+                <p>III. Developed and executed content strategies, increasing subscriber base and video views.</p>
             </ul>
         </section>
 
@@ -206,10 +192,10 @@
             <h2>References</h2>
             <p>Available upon request</p>
         </section>
-        <!-- Footer section -->
-        <footer>
-            <p>© All rights reserved by Mr. Ahmed Salem Khalifa.</p>
-        </footer>
     </div>
+
+    <footer>
+        © All rights reserved by Mr. Ahmed Salem Khalifa.
+    </footer>
 </body>
 </html>
