@@ -1,496 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed Salem | Tech Entrepreneur & Cybersecurity Expert</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahmed Salem | CV Portfolio</title>
+
+  <!-- AOS Animation Library -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #4e54c8;
+      --secondary: #8f94fb;
+      --text-dark: #222;
+      --text-light: #f9f9f9;
+      --bg-light: #f4f4f4;
+      --bg-dark: #1e1e2f;
+      --card-bg: #fff;
+      --card-dark-bg: #2c2c3a;
+      --btn-hover: #726fdd;
+      --overlay-bg: rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background-image: 
+        url('https://www.transparenttextures.com/patterns/cubes.png');
+      background-repeat: repeat;
+      background-size: 200px 200px;
+      color: var(--text-light);
+      line-height: 1.6;
+      transition: background 0.4s, color 0.4s;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* Overlay to improve text visibility */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--overlay-bg);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    body.dark-mode {
+      background: linear-gradient(135deg, #12121f, #2c2c44);
+      background-image: url('https://www.transparenttextures.com/patterns/diagmonds-light.png');
+      background-repeat: repeat;
+      background-size: 150px 150px;
+      color: var(--text-light);
+    }
+
+    body.disable-selection {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    body.disable-selection ::selection {
+      background: transparent;
+    }
+
+    #typewriter {
+      display: inline-block;
+      border-right: 2px solid #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: var(--btn-hover);
+    }
+
+    .btn {
+      background: var(--text-light);
+      color: var(--primary);
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      display: inline-block;
+      margin-top: 25px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--btn-hover);
+      color: #fff;
+      box-shadow: 0 8px 25px rgba(114, 111, 221, 0.7);
+      transform: translateY(-3px);
+    }
+
+    header.hero {
+      padding: 120px 20px 100px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    header.hero h1 {
+      font-size: 3.8rem;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+      user-select: none;
+    }
+
+    .logo {
+      width: 120px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.5));
+    }
+
+    .toggle-theme {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+      font-size: 1.2rem;
+      user-select: none;
+      transition: background 0.3s ease;
+    }
+
+    .toggle-theme:hover {
+      background: var(--secondary);
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      color: var(--text-light);
+      text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #fff;
+      user-select: none;
+    }
+
+    /* Adding emoji to section headings */
+    #summary h2::before {
+      content: "👋 ";
+    }
+
+    #experience h2::before {
+      content: "💼 ";
+    }
+
+    #skills h2::before {
+      content: "🛠️ ";
+    }
+
+    #education h2::before {
+      content: "🎓 ";
+    }
+
+    #certifications h2::before {
+      content: "📜 ";
+    }
+
+    #contact h2::before {
+      content: "📞 ";
+    }
+
+    .grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 24px;
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease, background 0.4s;
+      color: #fff;
+      user-select: none;
+    }
+
+    body.dark-mode .card {
+      background: rgba(44, 44, 58, 0.6);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 12px 40px rgba(255, 255, 255, 0.3);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #111;
+      color: var(--text-light);
+      font-size: 1rem;
+      user-select: none;
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      header.hero h1 {
+        font-size: 2.8rem;
+      }
+      section h2 {
+        font-size: 2rem;
+      }
+      .btn {
+        padding: 12px 24px;
+      }
+    }
+  </style>
 </head>
-<body>
-    <!-- Background Particles -->
-    <div id="particles-js"></div>
-    
-    <!-- Header Section -->
-    <header class="header" data-aos="fade-down">
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <span>A</span>hmed <span>S</span>alem
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-                    <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
-                    <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
-                    <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
-                    <li><a href="#certificates"><i class="fas fa-certificate"></i> Certificates</a></li>
-                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-        </div>
-    </header>
+<body oncontextmenu="return false">
+  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDxqZXimYlXuNIlFVRB0PCBHxrgvFniKzXxOSmyCS4ijFfAW_NYjxaueojXj-nZYMlNKSZugaS4sSlIQAyzLKqNRqTqilt-mtsLWi2NQR7rNKAj2nSEBCPxVPO1Z836pIQZW-Q3wYnCXwQjAvHZ_BO855n11CYHVfKfDW_cMXS_JarklbkU_F-8Wc1IEE/s500/Shodwe_20240801_040256_0000-removebg-preview.png" alt="Logo" class="logo" />
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content" data-aos="fade-up" data-aos-delay="300">
-                <h4>Hello, I'm</h4>
-                <h1>Ahmed Salem</h1>
-                <div class="animated-text">
-                    <span class="text first-text">Founder & CEO of</span>
-                    <span class="text sec-text">Algolive Solutions</span>
-                </div>
-                <p>Tech Entrepreneur | Cybersecurity Expert | Content Creator</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                    <a href="#about" class="btn btn-secondary">Learn More</a>
-                </div>
-            </div>
-            <div class="scroll-down">
-                <a href="#about"><i class="fas fa-chevron-down"></i></a>
-            </div>
-        </div>
-    </section>
+  <button class="toggle-theme" id="toggleTheme" aria-label="Toggle Dark/Light Mode">🌓</button>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">About <span>Me</span></h2>
-            <div class="about-content">
-                <div class="about-img" data-aos="fade-right">
-                    <div class="img-container">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5SbURWk1kpnExPG8Qh9zsrwH40kcSUJEw0Kcl3ZEFOjX4gaawfh-OG1vMmZ65JtBX9XO1zfVmqSBVz0__w1ejIPNB2PTA-zSV1NCymms12V3gMNMGY4IQCdIcQSFGywOULPiDAY_WzTLS5zTUzoCfA09-8YwjBqU81nHf0w34JZ3jUSLBBjwQh6iAtMc/s720/Screenshot_20250107_003705_Gallery.png" alt="Ahmed Salem" class="profile-img">
-                        <div class="circle-spin"></div>
-                    </div>
-                </div>
-                <div class="about-text" data-aos="fade-left">
-                    <h3>Tech Entrepreneur & Cybersecurity Expert</h3>
-                    <p>I am Ahmed Salem, a student and young entrepreneur with a strong passion for technology and business. With expertise in cybersecurity, SEO, and video editing, I constantly strive for innovation and development. As the Founder & CEO of Algolive Solutions, I work on delivering cutting-edge tech solutions and supporting individuals and businesses in their digital journey.</p>
-                    <div class="personal-info">
-                        <div class="info-item">
-                            <i class="fas fa-user-tie"></i>
-                            <span>Founder & CEO at Algolive Solutions</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Benha, Qalyobia, Egypt</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>asalemkhalfa@gmail.com</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+201012043890</span>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/ahmedsalem-khalifa" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.youtube.com/@algohive.solutions" class="social-icon"><i class="fab fa-youtube"></i></a>
-                    </div>
-                    <a href="https://drive.google.com/file/d/1Au9XBjDO0yD3M_Ao-9k-0kjhqn9_7rLl/view?usp=sharing" class="btn btn-primary download-cv">
-                        <i class="fas fa-download"></i> Download CV
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Hero Section -->
+  <header class="hero" id="home" data-aos="fade-down" aria-label="Hero Section">
+    <h1>Ahmed Salem</h1>
+    <p id="typewriter">Tech Enthusiast • Content Creator • Cybersecurity Learner</p>
+    <div style="margin-top: 30px;">
+      <a href="tel:+201012043890" class="btn" aria-label="Get in Touch by phone">Get in Touch</a>
+    </div>
+    <div style="margin-top: 20px;">
+      <a href="https://drive.google.com/file/d/1BldzGFiHbPMh5RDuPw66r3ck-UrjGdnV/view?usp=sharing" class="btn" target="_blank" rel="noopener noreferrer" aria-label="Download CV">Download CV</a>
+    </div>
+  </header>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section dark-bg">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">My <span>Journey</span></h2>
-            <div class="experience-container">
-                <div class="experience-tabs" data-aos="fade-right">
-                    <button class="tab-btn active" data-tab="professional">Professional</button>
-                    <button class="tab-btn" data-tab="entrepreneurial">Entrepreneurial</button>
-                    <button class="tab-btn" data-tab="freelance">Freelance</button>
-                </div>
-                <div class="experience-content" data-aos="fade-left">
-                    <div class="content professional show">
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <div class="timeline-date">DEC 2024 – PRESENT</div>
-                                <div class="timeline-content">
-                                    <h3>Chief Executive Officer</h3>
-                                    <h4>AlgoHive Solutions | Benha, Egypt</h4>
-                                    <ul>
-                                        <li>Overseeing all operational activities and ensuring quality standards are met.</li>
-                                        <li>Leading and inspiring teams to achieve excellence in delivering innovative tech solutions and products.</li>
-                                        <li>Managing relationships with partners, investors, and stakeholders.</li>
-                                        <li>Analyzing the market to identify new opportunities for expansion and growth.</li>
-                                        <li>Representing the company at conferences and events to enhance its market presence.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-date">JAN 2025 – FEB 2025</div>
-                                <div class="timeline-content">
-                                    <h3>Co-Founder and Chief Information Security Officer</h3>
-                                    <h4>Master English | Banha, Egypt</h4>
-                                    <ul>
-                                        <li>Established and managed the academy's comprehensive information security framework.</li>
-                                        <li>Identified, assessed, and mitigated potential security risks.</li>
-                                        <li>Designed and enforced security policies and best practices.</li>
-                                        <li>Monitored and enhanced the performance and security of the academy's technological infrastructure.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content entrepreneurial">
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <div class="timeline-date">OCT 2024 – DEC 2024</div>
-                                <div class="timeline-content">
-                                    <h3>Content Creator & Blog Administrator</h3>
-                                    <h4>AlgoHive Solutions | Benha, Egypt</h4>
-                                    <ul>
-                                        <li>Established and managed the company blog from scratch.</li>
-                                        <li>Created SEO-optimized content on programming, technology, and educational insights.</li>
-                                        <li>Managed all aspects of blog operations including content scheduling and audience engagement.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content freelance">
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <div class="timeline-date">DEC 2024 – PRESENT</div>
-                                <div class="timeline-content">
-                                    <h3>Freelance Video Editor</h3>
-                                    <h4>Fawzi After Seventy YouTube channel | Remote</h4>
-                                    <ul>
-                                        <li>Edited a variety of videos for the YouTube channel focusing on poetry and animal stories.</li>
-                                        <li>Enhanced video quality through color correction, audio mixing, and special effects.</li>
-                                        <li>Created engaging thumbnails and optimized video metadata for better reach.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Summary -->
+  <section id="summary" data-aos="fade-up" aria-labelledby="about-me-heading">
+    <h2 id="about-me-heading">About Me</h2>
+    <p style="text-align:center; max-width: 800px; margin: auto;">
+      I’m a 17-year-old student with a passion for tech, cybersecurity, and content creation. Through leadership roles and volunteer work with organizations like UNICEF, I’ve developed strong communication and digital skills ready for international opportunities.
+    </p>
+  </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">My <span>Skills</span></h2>
-            <div class="skills-container">
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                    <h3><i class="fas fa-shield-alt"></i> Cybersecurity</h3>
-                    <div class="skill-item">
-                        <span>Ethical Hacking</span>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <span>Risk Management</span>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <span>Security Policies</span>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 75%"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                    <h3><i class="fas fa-laptop-code"></i> Technical</h3>
-                    <div class="skill-item">
-                        <span>SEO Optimization</span>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 100%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <span>HTML</span>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <span>CSS</span>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <span>JavaScript</span>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <span>Odoo</span>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <span>Video Editing</span>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <span>Content Creation</span>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 90%"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
-                    <h3><i class="fas fa-business-time"></i> Business</h3>
-                    <div class="skill-item">
-                        <span>Leadership</span>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 100%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <span>Strategic Planning</span>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <span>Team Management</span>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 100%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Experience -->
+  <section id="experience" data-aos="fade-up" aria-labelledby="experience-heading">
+    <h2 id="experience-heading">Experience</h2>
+    <div class="grid">
+      <article class="card" tabindex="0">
+        <h3>Social Media Officer</h3>
+        <p>El Tab3een Electronics</p>
+        <p><small>May - Jun 2025</small></p>
+        <p>Managed multi-platform content & client interaction via WhatsApp, FB, and Instagram.</p>
+      </article>
+      <article class="card" tabindex="0">
+        <h3>Cybersecurity Volunteer</h3>
+        <p>Master English</p>
+        <p><small>Jan - Feb 2025</small></p>
+        <p>Trained 30+ students on online safety & implemented data protection protocols.</p>
+      </article>
+      <article class="card" tabindex="0">
+        <h3>Founder</h3>
+        <p>AlgoHive Solutions</p>
+        <p><small>Dec 2024 - Present</small></p>
+        <p>Built a tech community reaching 100+ users in 3 months. Led multiple online projects.</p>
+      </article>
+    </div>
+  </section>
 
-    <!-- Education Section -->
-    <section id="education" class="section dark-bg">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">My <span>Education</span></h2>
-            <div class="education-container">
-                <div class="education-item" data-aos="zoom-in">
-                    <div class="education-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="education-content">
-                        <span>2022 - 2025</span>
-                        <h3>High School Diploma</h3>
-                        <h4>Banha Secondary School for Boys | Benha, Qalyobia, Egypt</h4>
-                        <p>Completed high school education with focus on science and technology subjects.</p>
-                    </div>
-                </div>
-                <div class="education-item" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="education-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="education-content">
-                        <span>2024 - 2025</span>
-                        <h3>Professional Certifications</h3>
-                        <h4>Various Institutions</h4>
-                        <p>Completed multiple professional certifications in cybersecurity, public speaking, and digital safety.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+ <!-- Skills -->
+<section id="skills" data-aos="fade-up" aria-labelledby="skills-heading">
+  <h2 id="skills-heading">Skills</h2>
+  <div class="grid" role="list">
+    <div class="card" role="listitem" tabindex="0">Teamwork & Leadership</div>
+    <div class="card" role="listitem" tabindex="0">Communication & Public Speaking</div>
+    <div class="card" role="listitem" tabindex="0">Problem-Solving</div>
+    <div class="card" role="listitem" tabindex="0">Time Management</div>
+    <div class="card" role="listitem" tabindex="0">Creativity & Content Creation</div>
+    <div class="card" role="listitem" tabindex="0">Cybersecurity Basics</div>
+    <div class="card" role="listitem" tabindex="0">SEO & Digital Marketing</div>
+    <div class="card" role="listitem" tabindex="0">Adaptability</div>
+    <div class="card" role="listitem" tabindex="0">Cross-Cultural Communication</div>
+    <div class="card" role="listitem" tabindex="0">Basic Computer Literacy (MS Office, Google Workspace)</div>
+  </div>
+</section>
 
-    <!-- Certificates Section -->
-    <section id="certificates" class="section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">My <span>Certificates</span></h2>
-            <div class="certificates-container">
-                <div class="certificate-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="certificate-img">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiokwU1PFQmNiW6iWVgfW6j-qY3OXJem1islr0k_fBvr0rKnzxOcR5oCJgzbbJo16tq0L5cfxK6rnbHSdc_J5cOVnZXckw3QpVCFzlFf6Ae__cPwMKT1P-w8X0KkgqZCWjAIXv7fZ96_VLCGOyWBhCPNhhVg0EtHsVZlqvkIiFnbSPD4K4vgnEZ-6BJm70/s3417/certificate-1743043938828.jpg" alt="Public Speaking Certificate">
-                        <div class="certificate-overlay">
-                            <a href="https://www.eduta.org/eduta-certificate?cert_hash=b1e1ed49ac74fc8b" target="_blank" class="certificate-link">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="certificate-content">
-                        <h3>Public Speaking (Finding and Developing Your Speaking Style)</h3>
-                        <p>EDUTA - March 2025</p>
-                        <span class="certificate-badge">Communication</span>
-                    </div>
-                </div>
-                <div class="certificate-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="certificate-img">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjosV6tHKtDdaHlCWXKlYh6XCXzO3DVpZ5Gd0bbgXW3R_npe-jECHqgLf6oJo4vlV7dTbW_YtUAgLfRf1vsRdnBgIW7fpPDPXNjfpSyUW5xDjKPTq5p7wf8qaTptLpu9NMaF_9D6RR8XjLo6_h6CI2fTPj7UTkZ4zt6E88Vwn6-N-3Og_U1jtT-iQW3_Jw/s3417/certificate-1743043933146.jpg" alt="Voice Modulation Certificate">
-                        <div class="certificate-overlay">
-                            <a href="https://www.eduta.org/eduta-certificate?cert_hash=2d8f3043fd6f1225" target="_blank" class="certificate-link">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="certificate-content">
-                        <h3>Voice Modulation: Master the Art of Powerful Speaking</h3>
-                        <p>EDUTA - February 2025</p>
-                        <span class="certificate-badge">Communication</span>
-                    </div>
-                </div>
-                <div class="certificate-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="certificate-img">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcTSZUuod56GpqBqX8BPhWC0C2SLPSlhOwwzsOyQhJMPEyuR9ZN_eTgWs0UrquKxfEe5bCWfwd-9cov3hVnGt5b6SSSCu0sd5BmbLOuvdtgLCEALDN116z6u_r7TpWEqXX0JfOHw2HppAJElsSdAqU-UCdcFojo9P53zpzHilbn6uOXcm3QNbe3G_kzFE/s7008/Document_2025-02-18_092933.jpg" alt="Digital Citizenship Certificate">
-                        <div class="certificate-overlay">
-                            <a href="https://drive.google.com/file/d/198mmTf58EzOZmFvh_aVNAOodu_6fp6ox/view?usp=sharing" target="_blank" class="certificate-link">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="certificate-content">
-                        <h3>Digital Citizenship and Internet Safety Campaign</h3>
-                        <p>UNICEF and Egyptian Ministry of Education - February 2025</p>
-                        <span class="certificate-badge">Digital Safety</span>
-                    </div>
-                </div>
-                <div class="certificate-item" data-aos="fade-up" data-aos-delay="400">
-                    <div class="certificate-img">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjfOT4qgZQdHrgx45GM_Rs40Su8oOEowsLdsj56xaMqb0N8NPcbX_hce0vA7oMZsXxldctWGh1w3925Co8OZOq6SjNXuMntgnYagVQNee9aT8wlFZVspoEk7werBR2Y71ri1N9Jak9TJraaZj6Z3YX1Du1U76Zwe58OLs9d73ub1LvNuGRXppK9z0jZA_o/s800/1736787207515.jfif" alt="Child Protection Certificate">
-                        <div class="certificate-overlay">
-                            <a href="https://drive.google.com/file/d/1DtiVScrS9p0NU-vtf-Hg4o9ArIw_a1iJ/view?usp=sharing" target="_blank" class="certificate-link">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="certificate-content">
-                        <h3>Certified Training in "Child Protection Online"</h3>
-                        <p>UNICEF and Egyptian Ministry of Education - January 2025</p>
-                        <span class="certificate-badge">Child Safety</span>
-                    </div>
-                </div>
-                <div class="certificate-item" data-aos="fade-up" data-aos-delay="500">
-                    <div class="certificate-img">
-                        <img src="https://udemy-certificate.s3.amazonaws.com/image/UC-db20d886-cd2e-42f3-88fe-aa46b2c5a91b.jpg" alt="Ethical Hacking Certificate">
-                        <div class="certificate-overlay">
-                            <a href="https://ude.my/UC-db20d886-cd2e-42f3-88fe-aa46b2c5a91b" target="_blank" class="certificate-link">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="certificate-content">
-                        <h3>Ethical Hacking: Windows Exploitation Basics</h3>
-                        <p>Udemy - November 2024</p>
-                        <span class="certificate-badge">Cybersecurity</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Education -->
+  <section id="education" data-aos="fade-up" aria-labelledby="education-heading">
+    <h2 id="education-heading">Education</h2>
+    <div class="card" style="max-width:600px; margin:auto;" tabindex="0">
+      <h3>Benha Secondary School for Boys</h3>
+      <p>High School Diploma (Expected 2025)</p>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section dark-bg">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Get In <span>Touch</span></h2>
-            <div class="contact-container">
-                <div class="contact-info" data-aos="fade-right">
-                    <h3>Contact Information</h3>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div class="info-content">
-                            <h4>Location</h4>
-                            <p>20 El-Iman St, Bata, Benha, Qalyobia, Egypt</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div class="info-content">
-                            <h4>Email</h4>
-                            <p>asalemkhalfa@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div class="info-content">
-                            <h4>Phone</h4>
-                            <p>+201012043890</p>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/ahmedsalem-khalifa" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.youtube.com/@algohive.solutions" class="social-icon"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="contact-form" data-aos="fade-left">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" required>
-                            <label for="name">Your Name</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" required>
-                            <label for="email">Your Email</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="subject" name="subject" required>
-                            <label for="subject">Subject</label>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" required></textarea>
-                            <label for="message">Your Message</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+ <!-- Certifications -->
+<section id="certifications" data-aos="fade-up" aria-labelledby="certifications-heading">
+  <h2 id="certifications-heading">Certifications</h2>
+  <div class="grid" role="list">
+    <div class="card" role="listitem" tabindex="0">Public Speaking Course – EDUTA, June 2025</div>
+    <div class="card" role="listitem" tabindex="0">Resume Writing & ATS – EDUTA, June 2025</div>
+    <div class="card" role="listitem" tabindex="0">Blogging & Influencer Marketing – Udemy, May 2025</div>
+    <div class="card" role="listitem" tabindex="0">Executive Diploma: Leadership & Management – Udemy, May 2025</div>
+    <div class="card" role="listitem" tabindex="0">Certificate of Public Speaking – EDUTA, March 2025</div>
+    <div class="card" role="listitem" tabindex="0">Voice Modulation – EDUTA, February 2025</div>
+    <div class="card" role="listitem" tabindex="0">Digital Citizenship & Internet Safety – UNICEF & MoE, Feb 2025</div>
+    <div class="card" role="listitem" tabindex="0">Child Protection Online – UNICEF & MoE, Jan 2025</div>
+    <div class="card" role="listitem" tabindex="0">Ethical Hacking: Windows Exploitation – Udemy, Nov 2024</div>
+    <div class="card" role="listitem" tabindex="0">English Proficiency Test (66%) – ASU, Nov 2024</div>
+    <div class="card" role="listitem" tabindex="0">EF SET English Certificate – B2 (Sep 2024)</div>
+    <div class="card" role="listitem" tabindex="0">EF SET English Certificate – B1 (Aug 2024)</div>
+  </div>
+</section>
+  
+<!-- Contact -->
+<section id="contact" data-aos="fade-up" aria-labelledby="contact-heading">
+  <h2 id="contact-heading">Contact</h2>
+  <div style="text-align:center; max-width: 600px; margin: auto;">
+    <div class="card" style="margin-bottom: 20px;" tabindex="0">
+      <p style="font-size: 1.2rem;">
+        📧 <strong>Email:</strong><br>
+        <a href="mailto:asalemkhalifa@gmail.com">asalemkhalifa@gmail.com</a>
+      </p>
+    </div>
+    <div class="card" style="margin-bottom: 20px;" tabindex="0">
+      <p style="font-size: 1.2rem;">
+        📱 <strong>Phone / WhatsApp:</strong><br>
+        <a href="tel:+201012043890">+20 101 204 3890</a>
+      </p>
+    </div>
+    <div class="card" tabindex="0">
+      <p style="font-size: 1.2rem;">
+        💼 <strong>LinkedIn:</strong><br>
+        <a href="https://linkedin.com/in/ahmed-salem14" target="_blank" rel="noopener noreferrer">Ahmed Salem</a>
+      </p>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <span>A</span>hmed <span>S</span>alem
-                </div>
-                <div class="footer-links">
-                    <a href="#about">About</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#certificates">Certificates</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/ahmedsalem-khalifa"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.youtube.com/@algohive.solutions"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Ahmed Salem. All Rights Reserved.</p>
-                <p>Designed with <i class="fas fa-heart"></i> by Ahmed Salem</p>
-            </div>
-        </div>
-    </footer>
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Ahmed Salem | All Rights Reserved.
+  </footer>
 
-    <!-- Back to Top Button -->
-    <a href="#" class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="script.js"></script>
+    // Dark mode toggle
+    const toggleBtn = document.getElementById('toggleTheme');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      // Save preference in localStorage
+      if(document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    // Load saved theme
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme');
+      if(savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+    });
+  </script>
 </body>
 </html>
