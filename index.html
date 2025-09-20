@@ -1,353 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="theme-color" content="#4e54c8" />
-<title>Ahmed Salem | CV Portfolio</title>
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-<style>
-:root {
-  --primary: #4e54c8;
-  --secondary: #8f94fb;
-  --text-dark: #222;
-  --text-light: #f9f9f9;
-  --bg-light: #f4f4f4;
-  --bg-dark: #1e1e2f;
-  --card-bg: #fff;
-  --card-dark-bg: #2c2c3a;
-  --btn-hover: #726fdd;
-  --overlay-bg: rgba(0, 0, 0, 0.35);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-  background-repeat: repeat;
-  background-size: 200px 200px;
-  color: var(--text-light);
-  line-height: 1.6;
-  transition: background 0.4s, color 0.4s;
-  min-height: 100vh;
-  position: relative;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: var(--overlay-bg);
-  z-index: -1;
-  pointer-events: none;
-}
-
-body.dark-mode {
-  background: linear-gradient(135deg, #12121f, #2c2c44);
-  background-image: url('https://www.transparenttextures.com/patterns/diagmonds-light.png');
-  background-size: 150px 150px;
-  color: var(--text-light);
-}
-
-#typewriter {
-  display: inline-block;
-  border-right: 2px solid #fff;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
-  font-size: clamp(1rem, 3vw, 1.4rem);
-  font-weight: 600;
-  color: #fff;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blink {
-  50% { border-color: transparent }
-}
-
-a {
-  color: var(--text-light);
-  text-decoration: none;
-  transition: 0.3s ease;
-}
-
-a:hover {
-  text-decoration: underline;
-  color: var(--btn-hover);
-}
-
-.btn {
-  background: var(--text-light);
-  color: var(--primary);
-  padding: 14px 28px;
-  border-radius: 30px;
-  font-weight: 700;
-  display: inline-block;
-  margin-top: 25px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  user-select: none;
-  text-align: center;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
-}
-
-.btn:hover {
-  background: var(--btn-hover);
-  color: #fff;
-  box-shadow: 0 8px 25px rgba(114, 111, 221, 0.7);
-  transform: translateY(-3px);
-}
-
-.logo {
-  max-width: 100px;
-  width: 20vw;
-  height: auto;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.5));
-}
-
-.toggle-theme {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: var(--primary);
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 25px;
-  cursor: pointer;
-  z-index: 999;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-  font-size: 1.2rem;
-  transition: background 0.3s ease;
-}
-
-.toggle-theme:hover {
-  background: var(--secondary);
-}
-
-header.hero {
-  padding: clamp(60px, 20vw, 120px) 5vw 100px;
-  text-align: center;
-  z-index: 1;
-  position: relative;
-}
-
-header.hero h1 {
-  font-size: clamp(2.4rem, 5vw, 3.8rem);
-  margin-bottom: 15px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
-  user-select: none;
-}
-
-section {
-  padding: clamp(40px, 8vw, 60px) 5vw;
-  max-width: 100%;
-  margin: auto;
-  color: var(--text-light);
-  text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
-}
-
-section h2 {
-  text-align: center;
-  font-size: clamp(1.6rem, 4vw, 2.5rem);
-  margin-bottom: 40px;
-  color: #fff;
-  user-select: none;
-}
-
-#summary h2::before { content: "👋 "; }
-#experience h2::before { content: "💼 "; }
-#skills h2::before { content: "🛠️ "; }
-#education h2::before { content: "🎓 "; }
-#certifications h2::before { content: "📜 "; }
-#contact h2::before { content: "📞 "; }
-
-.grid {
-  display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.15);
-  padding: 24px;
-  border-radius: 15px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-  backdrop-filter: blur(8px);
-  transition: transform 0.3s ease, background 0.4s;
-  color: #fff;
-  user-select: none;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 12px 40px rgba(255, 255, 255, 0.3);
-}
-
-footer {
-  text-align: center;
-  padding: 30px 20px;
-  background: #111;
-  color: var(--text-light);
-  font-size: 1rem;
-  user-select: none;
-  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Salem | Web Developer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body oncontextmenu="return false">
-  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDxqZXimYlXuNIlFVRB0PCBHxrgvFniKzXxOSmyCS4ijFfAW_NYjxaueojXj-nZYMlNKSZugaS4sSlIQAyzLKqNRqTqilt-mtsLWi2NQR7rNKAj2nSEBCPxVPO1Z836pIQZW-Q3wYnCXwQjAvHZ_BO855n11CYHVfKfDW_cMXS_JarklbkU_F-8Wc1IEE/s500/Shodwe_20240801_040256_0000-removebg-preview.png" alt="Logo" class="logo" />
+<body>
+    <!-- Header and Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Ahmed Salem</div>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <button class="toggle-theme" id="toggleTheme" aria-label="Toggle Dark/Light Mode">🌓</button>
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-content">
+                <h1>AI Web Developer & Odoo Specialist</h1>
+                <p>I build innovative, AI-powered web solutions and implement Odoo ERP systems to automate business processes.</p>
+                <a href="#projects" class="btn">View My Work</a>
+            </div>
+        </section>
 
-  <!-- Hero Section -->
-  <header class="hero" id="home" data-aos="fade-down" aria-label="Hero Section">
-    <h1>Ahmed Salem</h1>
-    <p id="typewriter">Tech Enthusiast • Content Creator • Cybersecurity Learner</p>
-    <div style="margin-top: 30px;">
-      <a href="tel:+201012043890" class="btn" aria-label="Get in Touch by phone">Get in Touch</a>
-    </div>
-    <div style="margin-top: 20px;">
-      <a href="https://drive.google.com/file/d/1BldzGFiHbPMh5RDuPw66r3ck-UrjGdnV/view?usp=sharing" class="btn" target="_blank" rel="noopener noreferrer" aria-label="Download CV">Download CV</a>
-    </div>
-  </header>
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>My Projects</h2>
+            <div class="project-cards">
+                <!-- Project Card 1 -->
+                <div class="card">
+                    <h3>MSQAEDU Official Website</h3>
+                    <p>Developed the official website for the Microsoft Academy in Qaliobia, enhancing their online presence and accessibility using Odoo.</p>
+                    <a href="https://msqaedu.com" target="_blank">Visit Website</a>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="card">
+                    <h3>AlgoHive Solutions Website</h3>
+                    <p>Designed and launched the official website for a tech initiative, driving user engagement and brand visibility with Odoo.</p>
+                    <a href="https://algohive.net" target="_blank">Visit Website</a>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="card">
+                    <h3>AI-Powered Applications</h3>
+                    <p>A collection of web applications where I integrated AI functionalities and leveraged Odoo for backend business process automation.</p>
+                    <a href="#" target="_blank">Learn More</a>
+                </div>
+            </div>
+        </section>
 
-  <!-- Summary -->
-  <section id="summary" data-aos="fade-up" aria-labelledby="about-me-heading">
-    <h2 id="about-me-heading">About Me</h2>
-    <p style="text-align:center; max-width: 800px; margin: auto;">
-      I’m a 17-year-old student with a passion for tech, cybersecurity, and content creation. Through leadership roles and volunteer work with organizations like UNICEF, I’ve developed strong communication and digital skills ready for international opportunities.
-    </p>
-  </section>
-
-  <!-- Experience -->
-  <section id="experience" data-aos="fade-up" aria-labelledby="experience-heading">
-    <h2 id="experience-heading">Experience</h2>
-    <div class="grid">
-      <article class="card" tabindex="0">
-        <h3>Social Media Officer</h3>
-        <p>El Tab3een Electronics</p>
-        <p><small>May - Jun 2025</small></p>
-        <p>Managed multi-platform content & client interaction via WhatsApp, FB, and Instagram.</p>
-      </article>
-      <article class="card" tabindex="0">
-        <h3>Cybersecurity Volunteer</h3>
-        <p>Master English</p>
-        <p><small>Jan - Feb 2025</small></p>
-        <p>Trained 30+ students on online safety & implemented data protection protocols.</p>
-      </article>
-      <article class="card" tabindex="0">
-        <h3>Founder</h3>
-        <p>AlgoHive Solutions</p>
-        <p><small>Dec 2024 - Present</small></p>
-        <p>Built a tech community reaching 100+ users in 3 months. Led multiple online projects.</p>
-      </article>
-    </div>
-  </section>
-
- <!-- Skills -->
-<section id="skills" data-aos="fade-up" aria-labelledby="skills-heading">
-  <h2 id="skills-heading">Skills</h2>
-  <div class="grid" role="list">
-    <div class="card" role="listitem" tabindex="0">Teamwork & Leadership</div>
-    <div class="card" role="listitem" tabindex="0">Communication & Public Speaking</div>
-    <div class="card" role="listitem" tabindex="0">Problem-Solving</div>
-    <div class="card" role="listitem" tabindex="0">Time Management</div>
-    <div class="card" role="listitem" tabindex="0">Creativity & Content Creation</div>
-    <div class="card" role="listitem" tabindex="0">Cybersecurity Basics</div>
-    <div class="card" role="listitem" tabindex="0">SEO & Digital Marketing</div>
-    <div class="card" role="listitem" tabindex="0">Adaptability</div>
-    <div class="card" role="listitem" tabindex="0">Cross-Cultural Communication</div>
-    <div class="card" role="listitem" tabindex="0">Basic Computer Literacy (MS Office, Google Workspace)</div>
-  </div>
-</section>
-
-  <!-- Education -->
-  <section id="education" data-aos="fade-up" aria-labelledby="education-heading">
-    <h2 id="education-heading">Education</h2>
-    <div class="card" style="max-width:600px; margin:auto;" tabindex="0">
-      <h3>Benha Secondary School for Boys</h3>
-      <p>High School Diploma (Expected 2025)</p>
-    </div>
-  </section>
-
- <!-- Certifications -->
-<section id="certifications" data-aos="fade-up" aria-labelledby="certifications-heading">
-  <h2 id="certifications-heading">Certifications</h2>
-  <div class="grid" role="list">
-    <div class="card" role="listitem" tabindex="0">Public Speaking Course – EDUTA, June 2025</div>
-    <div class="card" role="listitem" tabindex="0">Resume Writing & ATS – EDUTA, June 2025</div>
-    <div class="card" role="listitem" tabindex="0">Blogging & Influencer Marketing – Udemy, May 2025</div>
-    <div class="card" role="listitem" tabindex="0">Executive Diploma: Leadership & Management – Udemy, May 2025</div>
-    <div class="card" role="listitem" tabindex="0">Certificate of Public Speaking – EDUTA, March 2025</div>
-    <div class="card" role="listitem" tabindex="0">Voice Modulation – EDUTA, February 2025</div>
-    <div class="card" role="listitem" tabindex="0">Digital Citizenship & Internet Safety – UNICEF & MoE, Feb 2025</div>
-    <div class="card" role="listitem" tabindex="0">Child Protection Online – UNICEF & MoE, Jan 2025</div>
-    <div class="card" role="listitem" tabindex="0">Ethical Hacking: Windows Exploitation – Udemy, Nov 2024</div>
-    <div class="card" role="listitem" tabindex="0">English Proficiency Test (66%) – ASU, Nov 2024</div>
-    <div class="card" role="listitem" tabindex="0">EF SET English Certificate – B2 (Sep 2024)</div>
-    <div class="card" role="listitem" tabindex="0">EF SET English Certificate – B1 (Aug 2024)</div>
-  </div>
-</section>
-  
-<!-- Contact -->
-<section id="contact" data-aos="fade-up" aria-labelledby="contact-heading">
-  <h2 id="contact-heading">Contact</h2>
-  <div style="text-align:center; max-width: 600px; margin: auto;">
-    <div class="card" style="margin-bottom: 20px;" tabindex="0">
-      <p style="font-size: 1.2rem;">
-        📧 <strong>Email:</strong><br>
-        <a href="mailto:asalemkhalifa@gmail.com">asalemkhalifa@gmail.com</a>
-      </p>
-    </div>
-    <div class="card" style="margin-bottom: 20px;" tabindex="0">
-      <p style="font-size: 1.2rem;">
-        📱 <strong>Phone / WhatsApp:</strong><br>
-        <a href="tel:+201012043890">+20 101 204 3890</a>
-      </p>
-    </div>
-    <div class="card" tabindex="0">
-      <p style="font-size: 1.2rem;">
-        💼 <strong>LinkedIn:</strong><br>
-        <a href="https://linkedin.com/in/ahmed-salem14" target="_blank" rel="noopener noreferrer">Ahmed Salem</a>
-      </p>
-    </div>
-  </div>
-</section>
-
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Ahmed Salem | All Rights Reserved.
-  </footer>
-  
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-AOS.init({ duration: 800, once: true });
-const toggleBtn = document.getElementById('toggleTheme');
-toggleBtn.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-  localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-});
-window.addEventListener('DOMContentLoaded', () => {
-  if(localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
-});
-</script>
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <form id="contact-form">
+                <input type="text" id="name" name="name" placeholder="Your Name">
+                <input type="email" id="email" name="email" placeholder="Your Email">
+                <textarea id="message" name="message" placeholder="Your Message"></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </section>
+    </main>
 </body>
+<script src="script.js"></script>
 </html>
